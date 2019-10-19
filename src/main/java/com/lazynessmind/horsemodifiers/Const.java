@@ -8,5 +8,5 @@ public class Const {
     public static final String UPDATE_JSON = "https://raw.githubusercontent.com/lazynessmind/HorseModifiers/master/update.json";
     public static final String COMMON_PROXY = "com.lazynessmind.horsemodifiers.proxy.CommonProxy";
     public static final String CLIENT_PROXY = "com.lazynessmind.horsemodifiers.proxy.ClientProxy";
-    public static final String GUI_FACTORY = "com.lazynessmind.horsemodifiers.config.FTConfigGuiFactory";
+    public static final String GUI_FACTORY = "com.lazynessmind.horsemodifiers.configs.ConfigGuiFactory";
 }

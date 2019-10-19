@@ -3,3 +3,21 @@ item.flashcarrot.name=Flash Carrot
 item.jumpcarrot.name=Jump Carrot
 
 itemGroup.horseTab=Horse Modifiers
+
+gui.config.main_title=Horse Modifiers Configs
+
+gui.config.category.items=Items Configs
+gui.config.category.items.tooltip=All the mod items configs
+
+gui.config.items.flashCarrotValue.name=Flash Carrot
+gui.config.items.flashCarrotValue.comment=How much the carrot increases the speed
+gui.config.items.healthyCarrotValue.name=Healthy Carrot
+gui.config.items.healthyCarrotValue.comment=How much the carrot increases the HP
+gui.config.items.jumpCarrotValue.name=Jump Carrot
+gui.config.items.jumpCarrotValue.comment=How much the carrot increases the jump
+
+gui.config.category.features=Features Configs
+gui.config.category.features.tooltip=All the mod features configs
+
+gui.config.features.showUpdateMessage.name=Show update message on load.
+gui.config.features.showUpdateMessage.comment=If ON will display one message when joined the world.
