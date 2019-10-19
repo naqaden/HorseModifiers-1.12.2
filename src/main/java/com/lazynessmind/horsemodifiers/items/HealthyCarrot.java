@@ -1,9 +1,12 @@
 package com.lazynessmind.horsemodifiers.items;
 
+import com.lazynessmind.horsemodifiers.configs.Configs;
+import net.minecraft.block.SoundType;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
@@ -38,8 +41,8 @@ public class HealthyCarrot extends Carrot {
         //The only value that will be configurable is the amount of heart on carrot can add
         double currentMaxHealth = entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getAttributeValue();
         if (currentMaxHealth < 60.0D) {
-            entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(currentMaxHealth + 2.0D);
-            //entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.CROP.getVolume() * 0.6F, SoundType.CROP.getPitch());
+            entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(currentMaxHealth + Configs.healthyAddValue);
+            entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {
             playerEntity.sendMessage(new TextComponentString(TextFormatting.BLUE + "The limit has been reached!" + TextFormatting.GOLD + " Don't go Super Saiyan God!"));

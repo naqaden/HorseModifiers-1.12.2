@@ -1,8 +1,11 @@
 package com.lazynessmind.horsemodifiers.items;
 
+import com.lazynessmind.horsemodifiers.configs.Configs;
+import net.minecraft.block.SoundType;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
@@ -38,8 +41,8 @@ public class JumpCarrot extends Carrot {
         //The only value that will be configurable is the amount that the carrot modifies the attribute
         double currentJump = entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").getAttributeValue();
         if (currentJump != 0 && currentJump < 1.0D) {
-            entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").setBaseValue(currentJump + 0.1D);
-            //entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.CROP.getVolume() * 0.6F, SoundType.CROP.getPitch());
+            entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").setBaseValue(currentJump + Configs.jumpAddValue);
+            entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {
             playerEntity.sendMessage(new TextComponentString(TextFormatting.BLUE + "The limit has been reached!" + TextFormatting.GOLD + " The moon can't be reachable!"));
