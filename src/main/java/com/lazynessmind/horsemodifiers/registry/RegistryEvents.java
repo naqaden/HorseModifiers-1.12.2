@@ -45,7 +45,7 @@ public class RegistryEvents {
                 if (entity instanceof EntityPlayer) {
                     EntityPlayer player = (EntityPlayer) entity;
                     if (ForgeVersion.getResult(Loader.instance().activeModContainer()).status == ForgeVersion.Status.OUTDATED) {
-                        player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Farming Tools]" + TextFormatting.RED + " Current version is outdated! " + TextFormatting.WHITE + "Check the mod page to update. :)"));
+                        player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Horse Modifiers]" + TextFormatting.RED + " Current version is outdated! " + TextFormatting.WHITE + "Check the mod page to update. :)"));
                     }
                 }
             }
