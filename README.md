@@ -39,11 +39,15 @@
   **1.0**
   * First release;
   
+  **1.1**
+  * Fix: Update message with wrong mod name;
+  * New: Horse Spy, check horse attributes;
+  
 </details>
 
 ## Features:
 
-![Ola](https://raw.githubusercontent.com/lazynessmind/HorseModifiers/dev/imgs/recipe-with-text.png "Ola")
+![Ola](https://raw.githubusercontent.com/lazynessmind/HorseModifiers/master/imgs/recipe-with-text.png "Ola")
 
 ## Links:
 
