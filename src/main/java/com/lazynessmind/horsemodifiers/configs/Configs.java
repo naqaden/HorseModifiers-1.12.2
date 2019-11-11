@@ -22,8 +22,10 @@ public class Configs {
     public static final String CATEGORY_NAME_FEATURE = "feature";
 
     public static double jumpAddValue;
+    public static double jumpCarrotLimit;
     public static double healthyAddValue;
     public static double flashAddValue;
+    public static double flashCarrotLimit;
 
     public static boolean showUpdateMessage;
 
@@ -72,6 +74,12 @@ public class Configs {
         flashCarrot.setMinValue(0.1D);
         flashCarrot.setMaxValue(1.0D);
 
+        Property flashLimit = config.get(CATEGORY_NAME_ITEMS, "flashCarrotLimit", 1.0D);
+        flashLimit.setLanguageKey("gui.config.items.flashCarrotLimit.name");
+        flashLimit.setComment(I18n.format("gui.config.items.flashCarrotLimit.comment"));
+        flashLimit.setMinValue(1.0D);
+        flashLimit.setMaxValue(100.0D);
+
         Property healthyCarrot = config.get(CATEGORY_NAME_ITEMS, "healthyCarrotValue", 2.0D);
         healthyCarrot.setLanguageKey("gui.config.items.healthyCarrotValue.name");
         healthyCarrot.setComment(I18n.format("gui.config.items.healthyCarrotValue.comment"));
@@ -84,21 +92,33 @@ public class Configs {
         jumpCarrot.setMinValue(0.1D);
         jumpCarrot.setMaxValue(1.0D);
 
+        Property jumpLimit = config.get(CATEGORY_NAME_ITEMS, "jumpCarrotLimit", 1.0D);
+        jumpLimit.setLanguageKey("gui.config.items.jumpCarrotLimit.name");
+        jumpLimit.setComment(I18n.format("gui.config.items.jumpCarrotLimit.comment"));
+        jumpLimit.setMinValue(1.0D);
+        jumpLimit.setMaxValue(100.0D);
+
         List<String> propertyOrderItems = new ArrayList<String>();
         propertyOrderItems.add(flashCarrot.getName());
+        propertyOrderItems.add(flashLimit.getName());
         propertyOrderItems.add(healthyCarrot.getName());
         propertyOrderItems.add(jumpCarrot.getName());
+        propertyOrderItems.add(jumpLimit.getName());
         config.setCategoryPropertyOrder(CATEGORY_NAME_ITEMS, propertyOrderItems);
 
         if (readFieldsFromConfig) {
             flashAddValue = flashCarrot.getDouble();
+            flashCarrotLimit = flashLimit.getDouble();
             healthyAddValue = healthyCarrot.getDouble();
             jumpAddValue = jumpCarrot.getDouble();
+            jumpCarrotLimit = jumpLimit.getDouble();
         }
 
         flashCarrot.set(flashAddValue);
+        flashLimit.set(flashCarrotLimit);
         healthyCarrot.set(healthyAddValue);
         jumpCarrot.set(jumpAddValue);
+        jumpLimit.set(jumpCarrotLimit);
     }
 
     private static void setFeatureConfigs(boolean readFieldsFromConfig) {

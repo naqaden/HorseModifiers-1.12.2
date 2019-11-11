@@ -23,10 +23,14 @@ gui.config.category.items.tooltip=All the mod items configs
 
 gui.config.items.flashCarrotValue.name=Flash Carrot
 gui.config.items.flashCarrotValue.comment=How much the carrot increases the speed
+gui.config.items.flashCarrotLimit.name=Flash Carrot Limit
+gui.config.items.flashCarrotLimit.comment=Horse Speed max value
 gui.config.items.healthyCarrotValue.name=Healthy Carrot
 gui.config.items.healthyCarrotValue.comment=How much the carrot increases the HP
 gui.config.items.jumpCarrotValue.name=Jump Carrot
 gui.config.items.jumpCarrotValue.comment=How much the carrot increases the jump
+gui.config.items.jumpCarrotLimit.name=Jump Carrot Limit
+gui.config.items.jumpCarrotLimit.comment=Horse jump max value
 
 gui.config.category.features=Features Configs
 gui.config.category.features.tooltip=All the mod features configs
