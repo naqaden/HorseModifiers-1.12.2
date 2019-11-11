@@ -43,6 +43,12 @@
   * Fix: Update message with wrong mod name;
   * New: Horse Spy, check horse attributes;
   
+  **1.1.1**
+  * Updated Forge to latest version
+  * Idea: Add limit value config to each attribute - Thansk *neqaden*
+  * Fix: All the text is translated
+  * Added: Germany and Portuguese translations
+  
 </details>
 
 ## Features:
