@@ -45,7 +45,7 @@ public class FlashCarrot extends Carrot {
         //Limit the speed to 1.0D because the server starts shaking in higher values
         //But for the love of goods a config will be added.
         double currentSpeed = entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue();
-        if (currentSpeed < 1.0D) {
+        if (currentSpeed < Configs.flashCarrotLimit) {
             entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(currentSpeed + Configs.flashAddValue);
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;

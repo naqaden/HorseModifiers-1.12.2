@@ -78,7 +78,7 @@ public class Configs {
         flashLimit.setLanguageKey("gui.config.items.flashCarrotLimit.name");
         flashLimit.setComment(I18n.format("gui.config.items.flashCarrotLimit.comment"));
         flashLimit.setMinValue(1.0D);
-        flashLimit.setMaxValue(100.0D);
+        flashLimit.setMaxValue(3.0D);
 
         Property healthyCarrot = config.get(CATEGORY_NAME_ITEMS, "healthyCarrotValue", 2.0D);
         healthyCarrot.setLanguageKey("gui.config.items.healthyCarrotValue.name");
@@ -96,7 +96,7 @@ public class Configs {
         jumpLimit.setLanguageKey("gui.config.items.jumpCarrotLimit.name");
         jumpLimit.setComment(I18n.format("gui.config.items.jumpCarrotLimit.comment"));
         jumpLimit.setMinValue(1.0D);
-        jumpLimit.setMaxValue(100.0D);
+        jumpLimit.setMaxValue(2.2D);
 
         List<String> propertyOrderItems = new ArrayList<String>();
         propertyOrderItems.add(flashCarrot.getName());
