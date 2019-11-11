@@ -9,7 +9,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -25,8 +26,10 @@ public class HealthyCarrot extends Carrot {
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag tooltipFlag) {
         super.addInformation(stack, world, list, tooltipFlag);
-        list.add(TextFormatting.GOLD + "Changes the health attribute!");
-        list.add(TextFormatting.WHITE + "When the limit is reached the horse becomes the HULK!");
+        ITextComponent tooltipOne = new TextComponentTranslation("translation.healthycarrot.tooltip.one");
+        tooltipOne.getStyle().setColor(TextFormatting.GOLD);
+        list.add(tooltipOne.getFormattedText());
+        list.add(new TextComponentTranslation("translation.healthycarrot.tooltip.two").getFormattedText());
     }
 
     @Override
@@ -45,7 +48,9 @@ public class HealthyCarrot extends Carrot {
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {
-            playerEntity.sendMessage(new TextComponentString(TextFormatting.BLUE + "The limit has been reached!" + TextFormatting.GOLD + " Don't go Super Saiyan God!"));
+            ITextComponent tooltipOne = new TextComponentTranslation("translation.healthycarrot.message");
+            tooltipOne.getStyle().setColor(TextFormatting.BLUE);
+            playerEntity.sendMessage(tooltipOne);
             return false;
         }
     }

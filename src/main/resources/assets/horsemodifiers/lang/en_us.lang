@@ -5,6 +5,17 @@ item.horsespy.name=Horse Spy
 
 itemGroup.horseTab=Horse Modifiers
 
+translation.flashcarrot.message=The limit has been reached! Don't go to fast!
+translation.flashcarrot.tooltip.one=Changes the speed attribute!
+translation.flashcarrot.tooltip.two=When the limit is reached you need to lock the horse in a cell!
+translation.healthycarrot.message=The limit has been reached! Don't go Super Saiyan God!
+translation.healthycarrot.tooltip.one=Changes the health attribute!
+translation.healthycarrot.tooltip.two=When the limit is reached the horse becomes the HULK!
+translation.jumpcarrot.message=The limit has been reached! The moon can't be reached!
+translation.jumpcarrot.tooltip.one=Changes the jump attribute!
+translation.jumpcarrot.tooltip.two=When the limit is reached the affected horse can jump 7 blocks height!!
+translation.horsespy.tooltip.one=Click on the horse to spy
+
 gui.config.main_title=Horse Modifiers Configs
 
 gui.config.category.items=Items Configs

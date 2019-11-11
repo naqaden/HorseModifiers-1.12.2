@@ -9,7 +9,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -26,8 +27,10 @@ public class FlashCarrot extends Carrot {
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag tooltipFlag) {
         super.addInformation(stack, world, list, tooltipFlag);
-        list.add(TextFormatting.GOLD + "Changes the speed attribute!");
-        list.add(TextFormatting.WHITE + "When the limit is reached you need to lock the horse in a cell!");
+        ITextComponent tooltipOne = new TextComponentTranslation("translation.flashcarrot.tooltip.one");
+        tooltipOne.getStyle().setColor(TextFormatting.GOLD);
+        list.add(tooltipOne.getFormattedText());
+        list.add(new TextComponentTranslation("translation.flashcarrot.tooltip.two").getFormattedText());
     }
 
     @Override
@@ -45,10 +48,11 @@ public class FlashCarrot extends Carrot {
         if (currentSpeed < 1.0D) {
             entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(currentSpeed + Configs.flashAddValue);
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
-            System.out.println("Current speed: " + currentSpeed);
             return true;
         } else {
-            playerEntity.sendMessage(new TextComponentString(TextFormatting.BLUE + "The limit has been reached!" + TextFormatting.RED + " Don't go to fast!"));
+            ITextComponent tooltipOne = new TextComponentTranslation("translation.flashcarrot.message");
+            tooltipOne.getStyle().setColor(TextFormatting.BLUE);
+            playerEntity.sendMessage(tooltipOne);
             return false;
         }
     }
