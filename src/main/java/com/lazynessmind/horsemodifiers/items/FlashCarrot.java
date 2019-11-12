@@ -23,7 +23,6 @@ public class FlashCarrot extends Carrot {
         super("flashcarrot");
     }
 
-
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> list, ITooltipFlag tooltipFlag) {
         super.addInformation(stack, world, list, tooltipFlag);
@@ -41,12 +40,16 @@ public class FlashCarrot extends Carrot {
     @Override
     public boolean changeAttributes(EntityLivingBase entity, EntityPlayer playerEntity) {
         //Add 0.5D to the speed maybe?
-        //The game generates a random number to the speed starting at 0.45D
+        //The game generates a random number to the speed starting at 0.1125D
         //Limit the speed to 1.0D because the server starts shaking in higher values
         //But for the love of goods a config will be added.
         double currentSpeed = entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue();
         if (currentSpeed < Configs.flashCarrotLimit) {
-            entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(currentSpeed + Configs.flashAddValue);
+            if (currentSpeed + Configs.flashAddValue < Configs.flashCarrotLimit) {
+                entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(currentSpeed + Configs.flashAddValue);
+            } else {
+                entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(Configs.flashCarrotLimit);
+            }
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {

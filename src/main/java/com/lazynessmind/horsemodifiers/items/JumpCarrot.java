@@ -41,11 +41,14 @@ public class JumpCarrot extends Carrot {
     public boolean changeAttributes(EntityLivingBase entity, EntityPlayer playerEntity) {
         //One carrot gives 0.1D
         //Max could be 2.0D but, after 1.0D the horse starts to losing health
-        //1.0D = 7 blocks
-        //The only value that will be configurable is the amount that the carrot modifies the attribute
+        //1.0D = 5.25 blocks
         double currentJump = entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").getAttributeValue();
         if (currentJump != 0 && currentJump < Configs.jumpCarrotLimit) {
-            entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").setBaseValue(currentJump + Configs.jumpAddValue);
+            if (currentJump + Configs.jumpAddValue < Configs.jumpCarrotLimit) {
+                entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").setBaseValue(currentJump + Configs.jumpAddValue);
+            } else {
+                entity.getAttributeMap().getAttributeInstanceByName("horse.jumpStrength").setBaseValue(Configs.jumpCarrotLimit);
+            }
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {

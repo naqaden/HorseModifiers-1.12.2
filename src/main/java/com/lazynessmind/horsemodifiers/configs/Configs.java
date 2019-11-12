@@ -24,6 +24,7 @@ public class Configs {
     public static double jumpAddValue;
     public static double jumpCarrotLimit;
     public static double healthyAddValue;
+    public static double healthyCarrotLimit;
     public static double flashAddValue;
     public static double flashCarrotLimit;
 
@@ -86,6 +87,12 @@ public class Configs {
         healthyCarrot.setMinValue(0.5D);
         healthyCarrot.setMaxValue(20.0D);
 
+        Property healthyLimit = config.get(CATEGORY_NAME_ITEMS, "healthyCarrotLimit", 60.0D);
+        healthyLimit.setLanguageKey("gui.config.items.healthyCarrotLimit.name");
+        healthyLimit.setComment(I18n.format("gui.config.items.healthyCarrotLimit.comment"));
+        healthyLimit.setMinValue(2.0D);
+        healthyLimit.setMaxValue(60.0D);
+
         Property jumpCarrot = config.get(CATEGORY_NAME_ITEMS, "jumpCarrotValue", 0.1D);
         jumpCarrot.setLanguageKey("gui.config.items.jumpCarrotValue.name");
         jumpCarrot.setComment(I18n.format("gui.config.items.jumpCarrotValue.comment"));
@@ -102,6 +109,7 @@ public class Configs {
         propertyOrderItems.add(flashCarrot.getName());
         propertyOrderItems.add(flashLimit.getName());
         propertyOrderItems.add(healthyCarrot.getName());
+        propertyOrderItems.add(healthyLimit.getName());
         propertyOrderItems.add(jumpCarrot.getName());
         propertyOrderItems.add(jumpLimit.getName());
         config.setCategoryPropertyOrder(CATEGORY_NAME_ITEMS, propertyOrderItems);
@@ -110,6 +118,7 @@ public class Configs {
             flashAddValue = flashCarrot.getDouble();
             flashCarrotLimit = flashLimit.getDouble();
             healthyAddValue = healthyCarrot.getDouble();
+            healthyCarrotLimit = healthyLimit.getDouble();
             jumpAddValue = jumpCarrot.getDouble();
             jumpCarrotLimit = jumpLimit.getDouble();
         }
@@ -117,6 +126,7 @@ public class Configs {
         flashCarrot.set(flashAddValue);
         flashLimit.set(flashCarrotLimit);
         healthyCarrot.set(healthyAddValue);
+        healthyLimit.set(healthyCarrotLimit);
         jumpCarrot.set(jumpAddValue);
         jumpLimit.set(jumpCarrotLimit);
     }

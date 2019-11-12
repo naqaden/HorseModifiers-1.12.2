@@ -40,11 +40,13 @@ public class HealthyCarrot extends Carrot {
     @Override
     public boolean changeAttributes(EntityLivingBase entity, EntityPlayer playerEntity) {
         //Each heart = 2.0D
-        //Each horse can have 60.0D (30 hearts)
-        //The only value that will be configurable is the amount of heart on carrot can add
         double currentMaxHealth = entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getAttributeValue();
-        if (currentMaxHealth < 60.0D) {
-            entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(currentMaxHealth + Configs.healthyAddValue);
+        if (currentMaxHealth < Configs.healthyCarrotLimit) {
+            if (currentMaxHealth + Configs.healthyAddValue < Configs.healthyCarrotLimit) {
+                entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(currentMaxHealth + Configs.healthyAddValue);
+            } else {
+                entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(Configs.healthyCarrotLimit);
+            }
             entity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundType.ANVIL.getVolume() * 0.6F, SoundType.ANVIL.getPitch());
             return true;
         } else {
